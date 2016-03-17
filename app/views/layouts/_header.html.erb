@@ -1,0 +1,31 @@
+<nav class="navbar navbar-dark bg-inverse">
+  <ul class="nav navbar-nav pull-right">
+    <% if logged_in? %>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Message</a>
+        </a>
+        <ul class="dropdown-menu">
+          <li><%= link_to "New Message", '#', class: 'dropdown-item' %></li>
+          <li><%= link_to "Sent Message(s)", '#', class: 'dropdown-item' %></li>
+          <li class="divider"></li>
+        </ul>
+      </li>
+      <li class="nav-item"><%= link_to "Add friends", '#', class: 'nav-link' %></li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Account</a>
+        </a>
+        <ul class="dropdown-menu">
+          <li><%= link_to "Profile", current_user, class: 'dropdown-item' %></li>
+          <li><%= link_to "Settings", '#', class: 'dropdown-item' %></li>
+          <li class="divider"></li>
+          <li>
+            <%= link_to "Log out", logout_path, method: "delete", class: 'dropdown-item' %>
+          </li>
+        </ul>
+      </li>
+    <% else %>
+      <li class="nav-item"><%= link_to "Log in", login_path, class: 'nav-link' %></li>
+    <% end %>
+  </ul>
+</nav>
+    

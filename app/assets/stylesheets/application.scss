@@ -1,4 +1,13 @@
 // Custom bootstrap variables must be set or import before bootstrap itself.
 @import "bootstrap";
 @import "debug";
-@import "users"
+@import "users";
+@import "sessions";
+
+
+/*header*/
+
+.pull-right {
+    float: right;
+    margin-right: 98px; /*set margin this way in your custom styesheet*/
+  }
