@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 
 gem 'bcrypt-ruby', '~> 3.1', '>= 3.1.5'
 gem 'bootstrap', '~> 4.0.0.alpha3'
+gem 'faker'
+gem 'kaminari'
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-tether', '>= 1.1.0'
