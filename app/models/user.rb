@@ -1,4 +1,9 @@
 class User < ActiveRecord::Base
+  has_many :sent_messages, class_name: "Message", foreign_key: "sender_id", dependent: :destroy
+  has_many :received_messages, class_name: "Message", foreign_key: "recipent_id", dependent: :destroy
+  has_many :sending, through: :sent_messages, source: :recipent
+  # has many :receiving, through: :received_messages, source: :sender
+
   before_save { self.email = email.downcase }
   validates :name,  presence: true, length: { maximum: 50 }
   VALID_EMAIL_REGEX = /\A([\w+\-]\.?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
@@ -13,5 +18,9 @@ class User < ActiveRecord::Base
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
                                                   BCrypt::Engine.cost
     BCrypt::Password.create(string, cost: cost)
+  end
+
+  def send(other_user)
+  	sent_messages.create(recipent_id: other_user.recipent_id)
   end
 end
