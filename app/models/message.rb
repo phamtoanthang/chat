@@ -6,7 +6,7 @@ class Message < ActiveRecord::Base
 	validates :content, presence: true
 
 	def is_read
-      self.read_at.nil?
+      !self.read_at.nil?
     end
 
 end
