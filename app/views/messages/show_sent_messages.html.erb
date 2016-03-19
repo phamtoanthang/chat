@@ -13,7 +13,7 @@
 	      	<h3>Messages</h3>
 	      	  <% @user.sent_messages.each do |msg| %>
 	      	    <% if msg.is_read  %>
-	      	    	<li>Message is <strong>already read</strong> at: <% msg.read_at = DateTime.now %> by <i><%= User.find(msg.recipent_id).name %></i></li>
+	      	    	<li>Message is <strong>already read</strong> at: <%= msg.read_at %> by <i><%= User.find(msg.recipent_id).name %></i></li>
 	      	    <% else %>
 	      	        <li>Message is sent at: <%= msg.created_at %> to <i><%= User.find(msg.recipent_id).name %></i> and is <strong>unread</strong></li>
 	      	    <% end %>

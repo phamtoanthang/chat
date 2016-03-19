@@ -12,12 +12,12 @@
 		  <div class="col-md-8">
 	      	<h3>Messages</h3>
 	      	  <% @user.received_messages.each do |msg| %>
-	      	    <% if msg.is_read  %>
+	      	    <% if !msg.is_read  %>
 	      	    	<li><strong>New Message " <%= msg.content %> "</strong> sent by <%= User.find(msg.sender_id).name %></li>
 	      	    	<% msg.read_at = DateTime.now %>
 	      	    	<% msg.save %>
 	      	    <% else %>
-	      	        Message is already read at: <%= msg.read_at %>
+	      	        <li>Message is already read at: <%= msg.read_at %></li>
 	      	    <% end %>
 	      	  <% end %>
 	      </div>
