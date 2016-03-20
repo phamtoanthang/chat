@@ -5,7 +5,7 @@ Submitted by: Thang Pham
 
 Time spent: 4 hours
 
-URL: **Insert your Heroku URL here**
+URL: http://coder-chat.herokuapp.com/
 
 ## User Stories
 
@@ -43,7 +43,7 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-![Video Walkthrough](relative-path-to-your-gif-file-on-github-or-absolute-path-to-file-on-imgur-or-youtube)
+![Video Walkthrough]https://github.com/phamtoanthang/chat/blob/master/walkthrough.gif
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
