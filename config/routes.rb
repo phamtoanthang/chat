@@ -9,4 +9,10 @@ Rails.application.routes.draw do
     resources :messages
     get 'show_sent_messages' => 'messages#show_sent_messages'
   end  
+  resources :users do
+    member do
+      get :following, :followers
+    end
+  end
+  resources :relationships,       only: [:create, :destroy]
 end

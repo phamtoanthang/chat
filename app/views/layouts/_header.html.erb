@@ -1,5 +1,5 @@
 <nav class="navbar navbar-dark bg-inverse">
-  <%= link_to "CHAT", current_user, class: "navbar-brand" %>
+  <%= link_to "HOME", current_user, class: "navbar-brand" %>
   <ul class="nav navbar-nav pull-right">
     <% if logged_in? %>
       <li class="nav-item dropdown">
@@ -7,6 +7,7 @@
         </a>
         <ul class="dropdown-menu">
           <li><%= link_to "Create New Message", new_user_message_path(current_user.id), class: 'dropdown-item' %></li>
+          <li><%= link_to "Inbox", current_user, class: 'dropdown-item' %></li>
           <li><%= link_to "Sent Message(s)", user_show_sent_messages_path(current_user.id), class: 'dropdown-item' %></li>
           <li class="divider"></li>
         </ul>
