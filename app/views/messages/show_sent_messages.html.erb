@@ -10,7 +10,7 @@
 	  </div>
 	  <% if @user.id == current_user.id %>
 		  <div class="col-md-8">
-	      	<h3>Messages</h3>
+	      	<h3>Sent Messages</h3>
 	      	  <% @user.sent_messages.each do |msg| %>
 	      	    <% if msg.is_read  %>
 	      	    	<li>Message is <strong>already read</strong> at: <%= msg.read_at %> by <i><%= User.find(msg.recipent_id).name %></i></li>

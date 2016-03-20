@@ -1,3 +1,4 @@
+<!-- This is the profile 'home' page and show all the receiving messages -->
 <div class="container">
 	<div class="row">
 	  <div class="col-md-4">
@@ -7,20 +8,24 @@
 	        <%= @user.name %>
 	      </h1>
 	    </section>
+	    <section class="stats">
+        	<%= render 'stats' %>
+      	</section>
 	  </div>
-	  <% if @user.id == current_user.id %>
-		  <div class="col-md-8">
-	      	<h3>Messages</h3>
-	      	  <% @user.received_messages.each do |msg| %>
+	  <div class="col-md-8">
+	    <%= render 'follow_form' if logged_in? %>
+	    <% if @user.id == current_user.id %>
+	      	<h3>Inbox</h3>
+	      	<% @user.received_messages.each do |msg| %>
 	      	    <% if !msg.is_read  %>
 	      	    	<li><strong>New Message " <%= msg.content %> "</strong> sent by <%= User.find(msg.sender_id).name %></li>
 	      	    	<% msg.read_at = DateTime.now %>
 	      	    	<% msg.save %>
 	      	    <% else %>
 	      	        <li>Message is already read at: <%= msg.read_at %></li>
-	      	    <% end %>
-	      	  <% end %>
-	      </div>
-	  <% end %>
+	      	    <% end %> 
+	        <% end %>
+	    <% end %>
+	  </div>
 	</div>
 </div>

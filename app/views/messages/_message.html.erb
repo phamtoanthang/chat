@@ -6,7 +6,7 @@
       <%= f.text_field :content, class: 'form-control' %>
 
       <%= f.label :recipent_id %>
-      <%= f.text_field :recipent_id, class: 'form-control' %>
+      <%= f.collection_select(:recipent_id, @user.following.all, :id, :name ) %>
 
       <%= f.submit "Send", class: "btn btn-primary" %>
     <% end %>
